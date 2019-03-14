@@ -1,6 +1,4 @@
-package com.swordglowsblue.fukuro.core
-
-import java.lang.Exception
+package com.swordglowsblue.fukuro.util
 
 internal fun String.indent(spaces:Int=2) =
   split("\n").map { " ".repeat(spaces)+it }.joinToString("\n")
@@ -36,13 +34,9 @@ internal fun String.unescape() = this
     it.groupValues[1].toInt(16).toChar().toString()
   }
 
-
 internal val String.head get() = getOrNull(0)
 internal val String.tail get() = drop(1)
 internal val <T, C : Collection<T>> C.head get():T? = elementAtOrNull(0)
 internal val <T, C : Collection<T>> C.tail get():List<T> = drop(1)
 internal operator fun Regex.contains(text:Char):Boolean = contains(text.toString())
 internal operator fun Regex.contains(text:CharSequence):Boolean = this.matches(text)
-
-class ParseException(message: String, pos: Lexer.Pos)
-  : Exception("$message (line ${pos.line}, col ${pos.col})")

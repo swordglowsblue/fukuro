@@ -2,7 +2,7 @@ package com.swordglowsblue.fukuro
 
 import com.swordglowsblue.fukuro.core.Lexer
 import com.swordglowsblue.fukuro.core.Lexer.Token.*
-import com.swordglowsblue.fukuro.core.Lexer.Pos
+import com.swordglowsblue.fukuro.util.SourcePos
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
@@ -66,29 +66,29 @@ class LexerTest : StringSpec({
 
   "Lexer#lex should produce proper token positions" {
     lexerTest.map { it.second } shouldBe listOf(
-      Pos(1, 0),
-      Pos(2, 0),
-      Pos(3, 0), Pos(3, 8), Pos(3, 9),
+      SourcePos(1, 0),
+      SourcePos(2, 0),
+      SourcePos(3, 0), SourcePos(3, 8), SourcePos(3, 9),
 
-      Pos(6, 0),
-      Pos(7, 0),
-      Pos(8, 0),
-      Pos(9, 0),
-      Pos(10, 0),
-      Pos(11, 0),
+      SourcePos(6, 0),
+      SourcePos(7, 0),
+      SourcePos(8, 0),
+      SourcePos(9, 0),
+      SourcePos(10, 0),
+      SourcePos(11, 0),
 
-      Pos(14, 0),
-      Pos(15, 0),
-      Pos(16, 0),
-      Pos(17, 0),
-      Pos(18, 0),
-      Pos(19, 0),
+      SourcePos(14, 0),
+      SourcePos(15, 0),
+      SourcePos(16, 0),
+      SourcePos(17, 0),
+      SourcePos(18, 0),
+      SourcePos(19, 0),
 
-      Pos(22, 0), Pos(22, 2), Pos(22, 4), Pos(22, 6), Pos(22, 8), Pos(22, 10),
-        Pos(22, 12), Pos(22, 14), Pos(22, 16), Pos(22, 18), Pos(22, 20),
-      Pos(23, 0), Pos(23, 3), Pos(23, 6), Pos(23, 9), Pos(23, 12), Pos(23, 15),
+      SourcePos(22, 0), SourcePos(22, 2), SourcePos(22, 4), SourcePos(22, 6), SourcePos(22, 8), SourcePos(22, 10),
+        SourcePos(22, 12), SourcePos(22, 14), SourcePos(22, 16), SourcePos(22, 18), SourcePos(22, 20),
+      SourcePos(23, 0), SourcePos(23, 3), SourcePos(23, 6), SourcePos(23, 9), SourcePos(23, 12), SourcePos(23, 15),
 
-      Pos(26, 0), Pos(26, 1), Pos(26, 3), Pos(26, 4), Pos(26, 6), Pos(26, 7)
+      SourcePos(26, 0), SourcePos(26, 1), SourcePos(26, 3), SourcePos(26, 4), SourcePos(26, 6), SourcePos(26, 7)
     )
   }
 })
